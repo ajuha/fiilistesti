@@ -1,0 +1,23 @@
+﻿h1 {
+font-size: 40px;
+}
+
+.container-full {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.fiilis{
+-webkit-appearance: none;
+background-color: Transparent;
+border: none;
+padding: 0;
+margin: 0;
+}
+
+#tulokset{
+height:70px;}
+
+#tyhjatila{
+height:100px;
+}
