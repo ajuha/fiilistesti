@@ -15,6 +15,8 @@
 <link rel="icon" href="../../favicon.ico">
 
 <title>Fiilissivu</title>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 <!-- Bootstrap core CSS -->
 
@@ -37,6 +39,32 @@
     <![endif]-->
 <script>
 	
+//dokumentin latautuessa aktivoidaan tapahtumankuuntelijat
+$(document).ready(function(){
+	
+	//tyhjennysnappia painettaessa
+	$("#tyhjennysnappi").click(function() {
+		$("#lista").empty();
+	});
+
+	
+	
+$("#latausnappi").click(function() {
+	
+	//ladataan JSON-dataa palvelimelta
+	$.getJSON( "fiilikset.json", function( data ) {
+		$.each( data, function( key, val ) {
+			//listaan uusi käyntikortti
+			var feels = $("<section class='Olio'/>").appendTo("#lista");
+			//nimi käyntikorttiin
+			$("<h2/>").text(val.id + " " +val.fiilis1 + " " +val.fiilis2 + " " +val.fiilis3 + " " +val.fiilis4 + " " +val.fiilis5 + " " +val.keskiarvo + " " +val.aanet + " " +val.alkuloppu + " " +val.pvm + " ").appendTo(feels);
+		});
+	}).error(function() { //palvelinyhteys aiheutti virheen
+		$("<p class='Error'>Virhe: Palvelin ei palauta JSON-dataa. Tarkista tietokantayhteys.</p>").appendTo("#lista");
+	});
+	
+});
+});
 </script>
 
 
@@ -44,10 +72,12 @@
 
 <body>
 
-		<div class="container-full">
+<h1>Tulokset</h1>
 
+<p><button id="latausnappi">Hae JSON</button> <button id="tyhjennysnappi">Tyhjenn&auml;</button>
+<div id="lista" ></div>
 
-			<c:forEach items="${tulokset}" var="tulos">
+<!-- 			<c:forEach items="${tulokset}" var="tulos">
 
 
 				<div class="row">
@@ -121,7 +151,9 @@
 						<td><c:out value=" ${tulos.alkuloppu}" /></td>
 						<td><c:out value=" ${tulos.pvm}" /></td>
 					</tr>
-</c:forEach>
+</c:forEach>															 -->
+
+<a href="fiilissivulle">Palaa takaisin</a>
 				</tbody>
 			</table>
 

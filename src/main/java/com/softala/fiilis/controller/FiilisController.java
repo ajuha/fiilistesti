@@ -18,22 +18,22 @@ public class FiilisController {
 	@Inject
 	FiilisDAO dao;
 
-	@RequestMapping("henkilot.json")
-	public @ResponseBody List<fiilistaulu> haeHenkilotJSON() {
-		List<fiilistaulu> henkilot = dao.haeKaikki();
-		return henkilot;
+	@RequestMapping("fiilikset.json")
+	public @ResponseBody List<fiilistaulu> haeFiiliksetJSON() {
+		List<fiilistaulu> fiilikset = dao.haeKaikki();
+		return fiilikset;
 	}
 
-	@RequestMapping("henkilot")
-	public String naytaHenkilolista() {
-		return "henk/henkilolista";
-	}
-
-	// HENKILÖIDEN LISTAUS
+	// fiilisten LISTAUS
 	@RequestMapping(value = "tuloksiin", method = RequestMethod.GET)
 	public String getList(Model model) {
 		List<fiilistaulu> tulokset = dao.haeKaikki();
 		model.addAttribute("tulokset", tulokset);
 		return "tulokset";
+	}
+	//vie tulossivulle
+	@RequestMapping("fiilissivulle")
+	public String naytaFiilissivu() {
+		return "fiilis";
 	}
 }
