@@ -235,6 +235,19 @@
 		}
 		return "";
 	}
+	
+	
+	$('#lisaa').click(function(){
+	       
+	      
+	      var json = { "fiilis1" : pisteet1, "fiilis2" : pisteet2, "fiilis3": pisteet3, "fiilis4" : pisteet4, "fiilis5" : pisteet5, "keskiarvo" : keskiarvo, "aanet" : aanet};
+	       
+	    $.ajax({
+	        url: "lisaatulos",
+	        data: JSON.stringify(json),
+	        type: "POST",
+	    });
+	  });
 </script>
 
 
@@ -247,7 +260,9 @@
 
 
 		<!-- Main component for a primary marketing message or call to action -->
-		<br> <br> <a href="tuloksiin">Näytä tulokset</a>
+		<br> <br> <a href="tuloksiin">Näytä tulokset</a><br>
+		<button id="lisaa">Lisää tulokset tietokantaan</button>
+		
 		<div id="tyhjatila">
 			<h1 id="kiitos" class="text-center">Anna loppufiilis</h1>
 		</div>

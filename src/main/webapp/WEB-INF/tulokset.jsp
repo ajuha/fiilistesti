@@ -46,47 +46,7 @@
 
 		<div class="container-full">
 
-
-			<c:forEach items="${tulokset}" var="tulos">
-
-
-				<div class="row">
-					<div class="col-md-offset-1 col-md-1 col-xs-1">
-						<c:out value=" ${tulos.id}" />
-					</div>
-					<div class="col-md-1 col-xs-1">
-						<c:out value=" ${tulos.fiilis1}" />
-					</div>
-					<div class="col-md-1 col-xs-1">
-						<c:out value=" ${tulos.fiilis2}" />
-					</div>
-					<div class="col-md-1 col-xs-1">
-						<c:out value=" ${tulos.fiilis3}" />
-					</div>
-					<div class="col-md-1 col-xs-1">
-						<c:out value=" ${tulos.fiilis4}" />
-					</div>
-					<div class="col-md-1 col-xs-1">
-						<c:out value=" ${tulos.fiilis5}" />
-					</div>
-					<div class="col-md-1 col-xs-1">
-						<c:out value=" ${tulos.keskiarvo}" />
-					</div>
-					<div class="col-md-1 col-xs-1">
-						<c:out value=" ${tulos.aanet}" />
-					</div>
-					<div class="col-md-1 col-xs-1">
-						<c:out value=" ${tulos.alkuloppu}" />
-					</div>
-					<div class="col-md-1 col-xs-1">
-						<c:out value=" ${tulos.pvm}" />
-					</div>
-
-
-				</div>
-			</c:forEach>
-
-
+<a href="fiilissivulle">Takaisin</a>
 			<table>
 				<thead>
 					

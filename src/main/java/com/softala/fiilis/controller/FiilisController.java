@@ -24,9 +24,16 @@ public class FiilisController {
 		return henkilot;
 	}
 
-	@RequestMapping("henkilot")
-	public String naytaHenkilolista() {
-		return "henk/henkilolista";
+	@RequestMapping("fiilissivulle")
+	public String naytaFiilissivu() {
+		return "fiilis";
+	}
+	
+	@RequestMapping("lisaatulos", method=RequestMethod.GET)
+	public String lisaaTulos() {
+		
+        
+		
 	}
 
 	// HENKILÖIDEN LISTAUS
