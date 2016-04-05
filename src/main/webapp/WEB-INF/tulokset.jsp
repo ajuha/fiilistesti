@@ -57,7 +57,9 @@ $("#latausnappi").click(function() {
 			//listaan uusi käyntikortti
 			var feels = $("<section class='Olio'/>").appendTo("#lista");
 			//nimi käyntikorttiin
+			
 			$("<h2/>").text(val.id + " " +val.fiilis1 + " " +val.fiilis2 + " " +val.fiilis3 + " " +val.fiilis4 + " " +val.fiilis5 + " " +val.keskiarvo + " " +val.aanet + " " +val.alkuloppu + " " +val.pvm + " ").appendTo(feels);
+			
 		});
 	}).error(function() { //palvelinyhteys aiheutti virheen
 		$("<p class='Error'>Virhe: Palvelin ei palauta JSON-dataa. Tarkista tietokantayhteys.</p>").appendTo("#lista");
@@ -80,47 +82,9 @@ $("#latausnappi").click(function() {
 <button id="latausnappi">Hae JSON</button> <button id="tyhjennysnappi">Tyhjenn&auml;</button>
 <div id="lista" ></div>
 
-<!-- 			<c:forEach items="${tulokset}" var="tulos">
 
 
-				<div class="row">
-					<div class="col-md-offset-1 col-md-1 col-xs-1">
-						<c:out value=" ${tulos.id}" />
-					</div>
-					<div class="col-md-1 col-xs-1">
-						<c:out value=" ${tulos.fiilis1}" />
-					</div>
-					<div class="col-md-1 col-xs-1">
-						<c:out value=" ${tulos.fiilis2}" />
-					</div>
-					<div class="col-md-1 col-xs-1">
-						<c:out value=" ${tulos.fiilis3}" />
-					</div>
-					<div class="col-md-1 col-xs-1">
-						<c:out value=" ${tulos.fiilis4}" />
-					</div>
-					<div class="col-md-1 col-xs-1">
-						<c:out value=" ${tulos.fiilis5}" />
-					</div>
-					<div class="col-md-1 col-xs-1">
-						<c:out value=" ${tulos.keskiarvo}" />
-					</div>
-					<div class="col-md-1 col-xs-1">
-						<c:out value=" ${tulos.aanet}" />
-					</div>
-					<div class="col-md-1 col-xs-1">
-						<c:out value=" ${tulos.alkuloppu}" />
-					</div>
-					<div class="col-md-1 col-xs-1">
-						<c:out value=" ${tulos.pvm}" />
-					</div>
 
-
-				</div>
-			</c:forEach>
-
-
->>>>>>> 738553f4580ecf3657af65a37bf81aea23867ebc
 			<table>
 				<thead>
 					
@@ -155,14 +119,13 @@ $("#latausnappi").click(function() {
 						<td><c:out value=" ${tulos.alkuloppu}" /></td>
 						<td><c:out value=" ${tulos.pvm}" /></td>
 					</tr>
-</c:forEach>															 -->
+</c:forEach>															
 
 <a href="fiilissivulle">Palaa takaisin</a>
 				</tbody>
 			</table>
 
 
-		</div>
 		<!-- /container -->
 
 

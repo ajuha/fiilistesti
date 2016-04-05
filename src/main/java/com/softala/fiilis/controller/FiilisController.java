@@ -41,6 +41,7 @@ public class FiilisController {
 	@ResponseBody
     public FiilisImpl lisaaFiilis(@RequestBody FiilisImpl fiilis) {
 		System.out.println("fiilis: "+fiilis);
+		dao.talleta(fiilis);
 		return fiilis;
         //return FiilisDAO.talleta(fiilis);
     }
