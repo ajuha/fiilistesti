@@ -37,6 +37,8 @@
 			.ready(
 					function() {
 
+						
+						//alustetaan alkuarvot
 						var yhteispisteet = 0;
 						var aanet = 0;
 						var keskiarvo = 0;
@@ -46,6 +48,7 @@
 						var pisteet3 = 0;
 						var pisteet4 = 0;
 						var pisteet5 = 0;
+						//jos arvoja on kekseissä, asetetaan ne muuttujiin
 						keskiarvo = getCookie("keskiarvokeksi");
 						pisteet1 = getCookie("pisteet1keksi");
 						pisteet2 = getCookie("pisteet2keksi");
@@ -67,6 +70,7 @@
 
 						$("#tulos").hide();
 
+						//lisää fiiliksen sen perusteella, mikä buttonin value on
 						$('.fiilis')
 								.click(
 										function() {
@@ -140,7 +144,8 @@
 											setTimeout(vaihdaTeksti, 1000);
 
 										});
-
+						
+						//vilauttaa kiitostekstin ja palauttaa saman tekstin takaisin
 						function vaihdaTeksti() {
 
 							$("#kiitos").fadeOut(
@@ -158,7 +163,8 @@
 							$("#numerorivi").fadeIn("slow");
 
 						}
-
+						
+						//näyttää muuttujien arvot sivulla
 						$('#tulokset').click(function() {
 
 							if (esilla == 1) {
@@ -172,7 +178,8 @@
 							}
 
 						});
-
+						
+						//nollaa javascript muuttujien arvot ja keksit
 						$('#nollaa')
 								.click(
 										function() {
@@ -214,15 +221,15 @@
 																	+ pisteet5);
 										});
 
-					});
 
+// asettaa keksin
 	function setCookie(cname, cvalue, exdays) {
 		var d = new Date();
 		d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
 		var expires = "expires=" + d.toUTCString();
 		document.cookie = cname + "=" + cvalue + "; " + expires;
 	}
-
+// hakee keksin
 	function getCookie(cname) {
 		var name = cname + "=";
 		var ca = document.cookie.split(';');
@@ -236,7 +243,7 @@
 		return "";
 	}
 	
-	
+	//lisää fiiliksen tietokantaan
 	$('#lisaa').click(function(){
 	       
 	      
@@ -246,8 +253,17 @@
 	        url: "lisaatulos",
 	        data: JSON.stringify(json),
 	        type: "POST",
+	         
+	        beforeSend: function(xhr) {
+	            xhr.setRequestHeader("Accept", "application/json");
+	            xhr.setRequestHeader("Content-Type", "application/json");
+	        }
 	    });
 	  });
+	
+	
+	}); //document.ready lopetus
+	
 </script>
 
 
