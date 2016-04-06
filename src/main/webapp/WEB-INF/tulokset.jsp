@@ -58,7 +58,7 @@ $("#latausnappi").click(function() {
 			var feels = $("<section class='Olio'/>").appendTo("#lista");
 			//nimi käyntikorttiin
 			
-			$("<h2/>").text(val.id + " " +val.fiilis1 + " " +val.fiilis2 + " " +val.fiilis3 + " " +val.fiilis4 + " " +val.fiilis5 + " " +val.keskiarvo + " " +val.aanet + " " +val.alkuloppu + " " +val.pvm + " ").appendTo(feels);
+			$("<h2/>").text(val.id + " " +val.fiilis1 + " " +val.fiilis2 + " " +val.fiilis3 + " " +val.fiilis4 + " " +val.fiilis5 + " " +val.keskiarvo + " " +val.aanet + " " +val.nimi + " " +val.pvm + " ").appendTo(feels);
 			
 		});
 	}).error(function() { //palvelinyhteys aiheutti virheen
@@ -97,7 +97,7 @@ $("#latausnappi").click(function() {
 							<th>Fiilis 5</th>
 							<th>Keskiarvo</th>
 							<th>Äänet</th>
-							<th>Alku/Loppu</th>
+							<th>Kyselyn nimi</th>
 							<th>Päivämäärä</th>
 
 
@@ -116,15 +116,14 @@ $("#latausnappi").click(function() {
 						<td><c:out value=" ${tulos.fiilis5}" /></td>
 						<td><c:out value=" ${tulos.keskiarvo}" /></td>
 						<td><c:out value=" ${tulos.aanet}" /></td>
-						<td><c:out value=" ${tulos.alkuloppu}" /></td>
+						<td><c:out value=" ${tulos.nimi}" /></td>
 						<td><c:out value=" ${tulos.pvm}" /></td>
 					</tr>
 </c:forEach>															
 
-<a href="fiilissivulle">Palaa takaisin</a>
+
 				</tbody>
 			</table>
-
 
 		<!-- /container -->
 

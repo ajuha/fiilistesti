@@ -37,7 +37,7 @@
 			.ready(
 					function() {
 
-						
+						var nimi = prompt("Anna fiilistestille nimi:", "softalatunti");
 						//alustetaan alkuarvot
 						var yhteispisteet = 0;
 						var aanet = 0;
@@ -246,11 +246,10 @@
 	//lisää fiiliksen tietokantaan
 	$('#lisaa').click(function(){
 		var date = new Date();
-		var str = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
-	    alert(str);  
+		var pvm = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();  
 		
 	      
-	      var json = { "fiilis1" : pisteet1, "fiilis2" : pisteet2, "fiilis3": pisteet3, "fiilis4" : pisteet4, "fiilis5" : pisteet5, "keskiarvo" : keskiarvo, "aanet" : aanet, "pvm" : str};
+	      var json = { "fiilis1" : pisteet1, "fiilis2" : pisteet2, "fiilis3": pisteet3, "fiilis4" : pisteet4, "fiilis5" : pisteet5, "keskiarvo" : keskiarvo, "aanet" : aanet, "nimi" : nimi, "pvm" : pvm};
 	       
 	    $.ajax({
 	        url: "lisaatulos",
@@ -266,11 +265,6 @@
 	    alert("tulokset lisätty tietokantaan");
 	  });
 	
-	$('#pvm').click(function(){
-		var date = new Date();
-	    var str = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDay();
-	    alert(str);
-	});
 	
 	
 	

@@ -37,7 +37,7 @@ public class FiilisDAOSpringJdbcImpl implements FiilisDAO {
 	 * Tietokannan generoima id asetetaan parametrina annettuun olioon.
 	 */
 	public void talleta(fiilistaulu h) {
-		final String sql = "insert into fiilikset(fiilis1, fiilis2, fiilis3, fiilis4, fiilis5, keskiarvo, aanet, alkuloppu, pvm) values(?,?,?,?,?,?,?,?,?)";
+		final String sql = "insert into fiilikset(fiilis1, fiilis2, fiilis3, fiilis4, fiilis5, keskiarvo, aanet, nimi, pvm) values(?,?,?,?,?,?,?,?,?)";
 		
 		//anonyymi sis??luokka tarvitsee vakioina v??litett??v??t arvot,
 		//jotta roskien keruu onnistuu t??m??n metodin suorituksen p????ttyess??. 
@@ -48,7 +48,7 @@ public class FiilisDAOSpringJdbcImpl implements FiilisDAO {
 		final int fiilis5 = h.getFiilis5();
 		final double keskiarvo = h.getKeskiarvo();
 		final int aanet = h.getAanet();
-		final String alkuloppu = h.getAlkuloppu();
+		final String nimi = h.getNimi();
 		final String pvm = h.getPvm();
 		
 		//jdbc pist???? generoidun id:n t??nne talteen
@@ -66,7 +66,7 @@ public class FiilisDAOSpringJdbcImpl implements FiilisDAO {
 	    	            ps.setInt(5, fiilis5);
 	    	            ps.setDouble(6, keskiarvo);
 	    	            ps.setInt(7, aanet);
-	    	            ps.setString(8, alkuloppu);
+	    	            ps.setString(8, nimi);
 	    	            ps.setString(9, pvm);
 	    	            return ps;
 	    	        }
@@ -80,7 +80,7 @@ public class FiilisDAOSpringJdbcImpl implements FiilisDAO {
 	
 
 	public fiilistaulu etsi(int id) {
-		String sql = "select fiilis1, fiilis2, fiilis3, fiilis4, fiilis4, fiilis5, keskiarvo, aanet, alkuloppu, pvm from fiilikset where id = ?";
+		String sql = "select fiilis1, fiilis2, fiilis3, fiilis4, fiilis4, fiilis5, keskiarvo, aanet, nimi, pvm from fiilikset where id = ?";
 		Object[] parametrit = new Object[] { id };
 		RowMapper<fiilistaulu> mapper = new FiilisRowMapper();
 		
@@ -98,7 +98,7 @@ public class FiilisDAOSpringJdbcImpl implements FiilisDAO {
 
 	public List<fiilistaulu> haeKaikki() {
 		
-		String sql = "select id, fiilis1, fiilis2, fiilis3, fiilis4, fiilis4, fiilis5, keskiarvo, aanet, alkuloppu, pvm from fiilikset";
+		String sql = "select id, fiilis1, fiilis2, fiilis3, fiilis4, fiilis4, fiilis5, keskiarvo, aanet, nimi, pvm from fiilikset";
 		RowMapper<fiilistaulu> mapper = new FiilisRowMapper();
 		List<fiilistaulu> henkilot = jdbcTemplate.query(sql,mapper);
 

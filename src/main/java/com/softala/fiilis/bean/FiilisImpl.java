@@ -12,7 +12,7 @@ public class FiilisImpl implements fiilistaulu {
 	private int fiilis5;
 	private double keskiarvo;
 	private int aanet;
-	private String alkuloppu;
+	private String nimi;
 	private String pvm;
 	
 	public int getId() {
@@ -78,12 +78,12 @@ public class FiilisImpl implements fiilistaulu {
 		this.aanet = aanet;
 	}
 
-	public String getAlkuloppu() {
-		return alkuloppu;
+	public String getNimi() {
+		return nimi;
 	}
 
-	public void setAlkuloppu(String alkuloppu) {
-		this.alkuloppu = alkuloppu;
+	public void setNimi(String nimi) {
+		this.nimi = nimi;
 	}
 
 	public String getPvm() {
@@ -105,7 +105,7 @@ public class FiilisImpl implements fiilistaulu {
 		return "HenkiloImpl [id=" + id + ", fiilis1=" + fiilis1 + ", fiilis2="
 				+ fiilis2 + ", fiilis3=" + fiilis3 + ", fiilis4="
 				+ fiilis4 + ", fiilis5=" + fiilis5
-				+ ", keskiarvo=" + keskiarvo + ", aanet=" + aanet + ", alkuloppu=" + alkuloppu + ", pvm=" + pvm + "]";
+				+ ", keskiarvo=" + keskiarvo + ", aanet=" + aanet + ", nimi=" + nimi + ", pvm=" + pvm + "]";
 	}
 
 }

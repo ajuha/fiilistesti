@@ -7,7 +7,7 @@ CREATE TABLE  fiilikset(
 	fiilis5 int NOT NULL,
 	keskiarvo DECIMAL (5,2),
 	aanet int NOT NULL,
-	alkuloppu varchar (5),
+	nimi varchar (30),
 	pvm DATE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

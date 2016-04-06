@@ -21,7 +21,7 @@ public class FiilisRowMapper implements RowMapper<fiilistaulu> {
 		h.setFiilis5(rs.getInt("fiilis5"));
 		h.setKeskiarvo(rs.getDouble("keskiarvo"));
 		h.setAanet(rs.getInt("aanet"));
-		h.setAlkuloppu(rs.getString("alkuloppu"));
+		h.setNimi(rs.getString("nimi"));
 		h.setPvm(rs.getString("pvm"));
 		
 		return h;

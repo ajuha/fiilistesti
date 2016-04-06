@@ -18,7 +18,7 @@ public interface fiilistaulu {
 
 	public abstract void setAanet(int int1);
 
-	public abstract void setAlkuloppu(String string);
+	public abstract void setNimi(String string);
 
 	public abstract void setPvm(String string);
 
@@ -38,7 +38,7 @@ public interface fiilistaulu {
 
 	public abstract int getAanet();
 
-	public abstract String getAlkuloppu();
+	public abstract String getNimi();
 
 	public abstract String getPvm();
 	
