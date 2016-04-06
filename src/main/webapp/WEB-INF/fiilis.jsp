@@ -245,9 +245,12 @@
 	
 	//lisää fiiliksen tietokantaan
 	$('#lisaa').click(function(){
-	       
+		var date = new Date();
+		var str = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+	    alert(str);  
+		
 	      
-	      var json = { "fiilis1" : pisteet1, "fiilis2" : pisteet2, "fiilis3": pisteet3, "fiilis4" : pisteet4, "fiilis5" : pisteet5, "keskiarvo" : keskiarvo, "aanet" : aanet};
+	      var json = { "fiilis1" : pisteet1, "fiilis2" : pisteet2, "fiilis3": pisteet3, "fiilis4" : pisteet4, "fiilis5" : pisteet5, "keskiarvo" : keskiarvo, "aanet" : aanet, "pvm" : str};
 	       
 	    $.ajax({
 	        url: "lisaatulos",
@@ -259,7 +262,16 @@
 	            xhr.setRequestHeader("Content-Type", "application/json");
 	        }
 	    });
+	    
+	    alert("tulokset lisätty tietokantaan");
 	  });
+	
+	$('#pvm').click(function(){
+		var date = new Date();
+	    var str = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDay();
+	    alert(str);
+	});
+	
 	
 	
 	}); //document.ready lopetus
@@ -273,7 +285,7 @@
 
 	<div class="container-full">
 
-
+<button id="pvm" class="btn-block">näytä pvm</button>
 
 		<!-- Main component for a primary marketing message or call to action -->
 		<br> <br> <a href="tuloksiin">Näytä tulokset</a><br>
