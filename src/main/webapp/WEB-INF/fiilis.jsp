@@ -279,7 +279,7 @@
 
 	<div class="container-full">
 
-<button id="pvm" class="btn-block">näytä pvm</button>
+
 
 		<!-- Main component for a primary marketing message or call to action -->
 		<br> <br> <a href="tuloksiin">Näytä tulokset</a><br>

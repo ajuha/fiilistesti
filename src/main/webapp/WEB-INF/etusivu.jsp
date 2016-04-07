@@ -13,17 +13,18 @@
     <title>Fiilissivu</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/tyyli.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css"
+	href="resources/styles/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="resources/styles/tyyli.css">
 
     <!-- Custom styles for this template -->
     <link href="navbar.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="js/ie-emulation-modes-warning.js"></script>
+<script src="resources/js/ie-emulation-modes-warning.js"></script>
 
-	<script src="js/jquery-1.12.0.min.js"></script>
+<script src="resources/js/jquery-1.12.0.min.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -45,8 +46,14 @@
 
     <div class="container-full">
 
-<button>Alkufiilis</button>
+<h2>Tervetuloa fiilissivulle!</h2>
 
+<h3>Tällä sivulla voit luoda fiiliskyselyn</h3>
+
+<a href="fiilissivulle">Luo fiiliskysely</a>
+
+<br>
+<a href="tuloksiin">Tuloksiin</a>
       
 
 
