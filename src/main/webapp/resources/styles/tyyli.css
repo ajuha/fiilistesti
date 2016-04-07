@@ -68,3 +68,18 @@ td {
 tr {
 	background: url(http://jackrugile.com/images/misc/noise-diagonal.png);	
 }
+
+.text-right
+{
+    text-align: right !important;
+}
+
+.text-center
+{
+    text-align: center !important;
+}
+
+.text-left
+{
+    text-align: left !important;
+}

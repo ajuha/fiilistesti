@@ -43,13 +43,21 @@ public class FiilisController {
 		System.out.println("fiilis: "+fiilis);
 		dao.talleta(fiilis);
 		return fiilis;
-        //return FiilisDAO.talleta(fiilis);
+        
     }
 	
 	
-	//vie tulossivulle
+	//vie fiilissivulle
 	@RequestMapping("fiilissivulle")
 	public String naytaFiilissivu() {
 		return "fiilis";
 	}
+	
+	//vie fiilissivulle
+		@RequestMapping("etusivulle")
+		public String naytaEtusivu() {
+			return "etusivu";
+		}
+		
+		
 }
