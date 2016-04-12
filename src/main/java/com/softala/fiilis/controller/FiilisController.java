@@ -59,5 +59,10 @@ public class FiilisController {
 			return "etusivu";
 		}
 		
+		@RequestMapping("login")
+		public String naytaLogin() {
+			return "login";
+		}
+		
 		
 }

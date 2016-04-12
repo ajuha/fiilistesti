@@ -57,7 +57,7 @@
 					</ul>
 					<!--Tämän kommentin alla ovat oikealla olevat linkit-->
 					<ul class="nav navbar-nav navbar-right">
-					<li> <a href="ostoskori"> Kirjaudu</a></li>
+					<li> <a href="login"> Kirjaudu</a></li>
 				
 					</ul>
 				</div>
