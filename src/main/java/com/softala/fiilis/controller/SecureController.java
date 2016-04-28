@@ -28,6 +28,11 @@ public class SecureController {
 		return "secure/fiilis";
 	}
 	
+	@RequestMapping(value = "/etusivu", method = RequestMethod.GET)
+	public String etusivu(Model model) {
+		return "secure/etusivu";
+	}
+	
 	@RequestMapping(value = "tulokset", method = RequestMethod.GET)
 	public String getList(Model model) {
 		List<fiilistaulu> tulokset = dao.haeKaikki();
@@ -61,11 +66,7 @@ public class SecureController {
 		return "secure/fiilis";
 	}
 	
-	//vie fiilissivulle
-		@RequestMapping("etusivulle")
-		public String naytaEtusivu() {
-			return "etusivu";
-		}
+
 		
 		//vie login sivulle
 		@RequestMapping("loginsivulle")
