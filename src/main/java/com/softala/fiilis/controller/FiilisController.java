@@ -59,10 +59,11 @@ public class FiilisController {
 			return "etusivu";
 		}
 		
-		@RequestMapping("login")
-		public String naytaLogin() {
+		//vie login sivulle
+		@RequestMapping("loginsivulle")
+		public String naytalogin() {
 			return "login";
-		}
+		}	
 		
 		
 }
