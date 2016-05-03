@@ -61,13 +61,15 @@
 				
 					</ul>
 				</div>
-            
+           </div> 
         <!-- /.container -->
     </nav>
 
     <!-- Page Content -->
     <div class="container">
-
+<br>
+<br>
+<br>
         <!-- Jumbotron Header -->
         <header class="jumbotron hero-spacer">
         

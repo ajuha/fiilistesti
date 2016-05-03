@@ -39,6 +39,11 @@ table {
 	margin: 30px auto;
 	text-align: center;
 	width: 800px;
+}
+
+.profiili table {
+	text-align: left;
+	width:100%;
 }	
 
 th {
@@ -82,4 +87,7 @@ tr {
 .text-left
 {
     text-align: left !important;
+}
+.profiili{
+	width:300px;
 }

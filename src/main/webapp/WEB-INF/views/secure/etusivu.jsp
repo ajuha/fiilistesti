@@ -51,7 +51,7 @@
        
  <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
+
             <!-- Brand and toggle get grouped for better mobile display -->
             <div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
@@ -168,24 +168,6 @@
   
 
 
- 
-
-<h2>Tervetuloa fiilissivulle!</h2>
-
-<h3>Tällä sivulla voit luoda fiiliskyselyn</h3>
-
-<a href="fiilissivulle">Luo fiiliskysely</a>
-
-<br>
-<a href="tuloksiin">Tuloksiin</a>
-      
-      
-      
-
-
-
-
-    </div> <!-- /container -->
 
 
 

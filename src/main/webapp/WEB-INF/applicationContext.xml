@@ -58,7 +58,7 @@
 
 		<sec:form-login
 			login-page="/login"
-			default-target-url="/secure/etusivu"
+			default-target-url="/secure/tulokset"
 			authentication-failure-url="/loginfail" />
 			
 		<sec:logout logout-success-url="/logout" />

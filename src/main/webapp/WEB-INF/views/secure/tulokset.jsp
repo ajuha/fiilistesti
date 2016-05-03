@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+    <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -22,8 +23,8 @@
 
 
 <link rel="stylesheet" type="text/css"
-	href="resources/styles/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="resources/styles/tyyli.css">
+	href="../resources/styles/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../resources/styles/tyyli.css">
 
 <!-- Custom styles for this template -->
 
@@ -66,7 +67,30 @@ $("#latausnappi").click(function() {
 	});
 	
 });
+
+$("#uusi").click(function() {
+	setCookie("keskiarvokeksi", 0, 365);
+	setCookie("aanetkeksi", 0, 365);
+	setCookie("pisteet1keksi", 0, 365);
+	setCookie("pisteet2keksi", 0, 365);
+	setCookie("pisteet3keksi", 0, 365);
+	setCookie("pisteet4keksi", 0, 365);
+	setCookie("pisteet5keksi", 0, 365);
+	setCookie("yhteispisteetkeksi", 0,
+			365);
+	window.location.replace("fiilis");
 });
+
+function setCookie(cname, cvalue, exdays) {
+	var d = new Date();
+	d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+	var expires = "expires=" + d.toUTCString();
+	document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+
+});
+
+
 </script>
 
 
@@ -74,8 +98,64 @@ $("#latausnappi").click(function() {
 
 <body>
 
-<h1>Tulokset</h1>
+<!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="etusivulle">Etusivu</a></li>
+						
+					</ul>
+					<!--Tämän kommentin alla ovat oikealla olevat linkit-->
+					<ul class="nav navbar-nav navbar-right">
+					<li><a>Sisäänkirjautuneena: <sec:authentication property="principal.username"/></a> </li>
+					<li> <a href="loginsivulle"> Kirjaudu ulos</a></li>
+				
+					</ul>
+				</div>
+           </div> 
+        <!-- /.container -->
+    </nav>
 
+<!-- Page Content -->
+    <div class="container">
+<br>
+<br>
+<br>
+<h1>Profiili</h1>
+
+<div class="profiili">
+<table>
+<tr>
+<td>Käyttäjätunnus</td>
+<td><sec:authentication property="principal.username"/></td>
+</tr>
+<tr>
+<td>Tunnus luotu:</td>
+<td></td>
+</tr>
+<tr>
+<td>Fiilistestejä:</td>
+<td></td>
+</tr>
+<tr>
+<td>Viimeisin fiilistesti:</td>
+<td></td>
+</tr>
+
+</table>
+
+</div> <!-- /.profiili -->
+
+<button type="button" class="btn btn-primary btn-block" id="uusi">Luo uusi fiiliskysely</button>
+
+<br>
+<br>
+
+
+<br>
+<br>
 
 <a href="fiilissivulle">Takaisin</a>
 
@@ -124,7 +204,7 @@ $("#latausnappi").click(function() {
 
 				</tbody>
 			</table>
-
+</div>
 		<!-- /container -->
 
 
