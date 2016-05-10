@@ -50,7 +50,7 @@ public class FiilisDAOSpringJdbcImpl implements FiilisDAO {
 		final int aanet = h.getAanet();
 		final String nimi = h.getNimi();
 		final String pvm = h.getPvm();
-		final int kayttajaid = h.getKayttajaid();
+		final int kayttajaid = 1;
 		
 		//jdbc pist???? generoidun id:n t??nne talteen
 		KeyHolder idHolder = new GeneratedKeyHolder();

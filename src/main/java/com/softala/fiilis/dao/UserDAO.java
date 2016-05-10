@@ -7,6 +7,6 @@ import com.softala.fiilis.bean.User;
 
 public interface UserDAO {
 
-	public abstract User etsi(String username);
+	public abstract User haeId(String username);
 
 }

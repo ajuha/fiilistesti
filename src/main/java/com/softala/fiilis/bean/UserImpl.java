@@ -1,6 +1,6 @@
 package com.softala.fiilis.bean;
 
-public class UserImpl {
+public class UserImpl implements User {
 
 	
 	private int id;

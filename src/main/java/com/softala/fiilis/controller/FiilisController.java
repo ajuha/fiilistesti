@@ -15,13 +15,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.softala.fiilis.bean.FiilisImpl;
+import com.softala.fiilis.bean.User;
 import com.softala.fiilis.bean.fiilistaulu;
 import com.softala.fiilis.dao.FiilisDAO;
+import com.softala.fiilis.dao.UserDAO;
 
 @Controller
 public class FiilisController {
 	@Inject
 	FiilisDAO dao;
+	UserDAO udao;
 
 	@RequestMapping("fiilikset.json")
 	public @ResponseBody List<fiilistaulu> haeFiiliksetJSON() {
@@ -44,8 +47,10 @@ public class FiilisController {
     public FiilisImpl lisaaFiilis(@RequestBody FiilisImpl fiilis) {
 		System.out.println("fiilis: "+fiilis);
 		//1. Hae useri kannasta usernamen perustella
-		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		User user=userDao.getUserByUserName(authentication.getName());
+		System.out.println("test");
+		//Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		//User id=udao.haeId(authentication.getName());
+		//System.out.println(id);
 		//2. userilta saat id:n
 		//3. tee sille mit‰ haluat, lis‰‰ fiilikseen messiin...
 		dao.talleta(fiilis);

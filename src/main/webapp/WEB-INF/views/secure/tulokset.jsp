@@ -104,13 +104,13 @@ function setCookie(cname, cvalue, exdays) {
             <!-- Brand and toggle get grouped for better mobile display -->
             <div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
-						<li><a href="etusivulle">Etusivu</a></li>
+						<li><a href="../etusivulle">Etusivu</a></li>
 						
 					</ul>
 					<!--Tämän kommentin alla ovat oikealla olevat linkit-->
 					<ul class="nav navbar-nav navbar-right">
 					<li><a>Sisäänkirjautuneena: <sec:authentication property="principal.username"/></a> </li>
-					<li> <a href="loginsivulle"> Kirjaudu ulos</a></li>
+					<li> <a href="../loginsivulle"> Kirjaudu ulos</a></li>
 				
 					</ul>
 				</div>
