@@ -54,13 +54,13 @@ $("#latausnappi").click(function() {
 	
 	//ladataan JSON-dataa palvelimelta
 	$.getJSON( "fiilikset.json", function( data ) {
+		var tableData = '<table><tr><th>ID</th><th>Fiilis 1</th><th>Fiilis 2</th><th>Fiilis 3</th><th>Fiilis 4</th><th>Fiilis 5</th><th>Keskiarvo</th><th>Äänet</th><th>Kyselyn nimi</th><th>Päivämäärä</th></tr>';
 		$.each( data, function( key, val ) {
 			//listaan uusi käyntikortti
-			var feels = $("<section class='Olio'/>").appendTo("#lista");
-			//nimi käyntikorttiin
-			
-			$("<h2/>").text(val.id + " " +val.fiilis1 + " " +val.fiilis2 + " " +val.fiilis3 + " " +val.fiilis4 + " " +val.fiilis5 + " " +val.keskiarvo + " " +val.aanet + " " +val.nimi + " " +val.pvm + " ").appendTo(feels);
-			
+			//nimi käyntikorttiin	
+			tableData += '<tr><td>'+val.id+'</td><td>'+val.fiilis1+'</td><td>'+val.fiilis2+'</td><td>'+val.fiilis3+'</td><td>'+val.fiilis4+'</td><td>'+val.fiilis5+'</td><td>'+val.keskiarvo+'</td><td>'+val.aanet+'</td><td>'+val.nimi+'</td><td>'+val.pvm+'</td></tr>';
+		//	$("<h2/>").text(val.id + " " +val.fiilis1 + " " +val.fiilis2 + " " +val.fiilis3 + " " +val.fiilis4 + " " +val.fiilis5 + " " +val.keskiarvo + " " +val.aanet + " " +val.nimi + " " +val.pvm + " ").appendTo(feels);
+			$('#lista').html(tableData);
 		});
 	}).error(function() { //palvelinyhteys aiheutti virheen
 		$("<p class='Error'>Virhe: Palvelin ei palauta JSON-dataa. Tarkista tietokantayhteys.</p>").appendTo("#lista");
@@ -160,50 +160,12 @@ function setCookie(cname, cvalue, exdays) {
 <a href="fiilissivulle">Takaisin</a>
 
 <button id="latausnappi">Hae JSON</button> <button id="tyhjennysnappi">Tyhjenn&auml;</button>
-<div id="lista" ></div>
+<div id="lista"></div>
 
 
 
 
-			<table>
-				<thead>
-					
-						<tr>
-							<th>ID</th>
-							<th>Fiilis 1</th>
-							<th>Fiilis 2</th>
-							<th>Fiilis 3</th>
-							<th>Fiilis 4</th>
-							<th>Fiilis 5</th>
-							<th>Keskiarvo</th>
-							<th>Äänet</th>
-							<th>Kyselyn nimi</th>
-							<th>Päivämäärä</th>
-
-
-						</tr>
-					
-				</thead>
-
-				<tbody>
-				<c:forEach items="${tulokset}" var="tulos">
-					<tr>
-						<td><c:out value=" ${tulos.id}" /></td>
-						<td><c:out value=" ${tulos.fiilis1}" /></td>
-						<td><c:out value=" ${tulos.fiilis2}" /></td>
-						<td><c:out value=" ${tulos.fiilis3}" /></td>
-						<td><c:out value=" ${tulos.fiilis4}" /></td>
-						<td><c:out value=" ${tulos.fiilis5}" /></td>
-						<td><c:out value=" ${tulos.keskiarvo}" /></td>
-						<td><c:out value=" ${tulos.aanet}" /></td>
-						<td><c:out value=" ${tulos.nimi}" /></td>
-						<td><c:out value=" ${tulos.pvm}" /></td>
-					</tr>
-</c:forEach>															
-
-
-				</tbody>
-			</table>
+			
 </div>
 		<!-- /container -->
 

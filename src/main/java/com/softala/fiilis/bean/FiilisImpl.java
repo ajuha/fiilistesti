@@ -14,6 +14,7 @@ public class FiilisImpl implements fiilistaulu {
 	private int aanet;
 	private String nimi;
 	private String pvm;
+	private int kayttajaid;
 	
 	public int getId() {
 		return id;
@@ -92,6 +93,14 @@ public class FiilisImpl implements fiilistaulu {
 
 	public void setPvm(String pvm) {
 		this.pvm = pvm;
+	}
+	
+	public int getKayttajaid() {
+		return kayttajaid;
+	}
+
+	public void setKayttajaid(int kayttajaid) {
+		this.kayttajaid = kayttajaid;
 	}
 
 

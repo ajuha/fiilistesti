@@ -37,7 +37,7 @@ public class FiilisDAOSpringJdbcImpl implements FiilisDAO {
 	 * Tietokannan generoima id asetetaan parametrina annettuun olioon.
 	 */
 	public void talleta(fiilistaulu h) {
-		final String sql = "insert into fiilikset(fiilis1, fiilis2, fiilis3, fiilis4, fiilis5, keskiarvo, aanet, nimi, pvm) values(?,?,?,?,?,?,?,?,?)";
+		final String sql = "insert into fiilikset(fiilis1, fiilis2, fiilis3, fiilis4, fiilis5, keskiarvo, aanet, nimi, pvm, kayttajaid) values(?,?,?,?,?,?,?,?,?,?)";
 		
 		//anonyymi sis??luokka tarvitsee vakioina v??litett??v??t arvot,
 		//jotta roskien keruu onnistuu t??m??n metodin suorituksen p????ttyess??. 
@@ -50,6 +50,7 @@ public class FiilisDAOSpringJdbcImpl implements FiilisDAO {
 		final int aanet = h.getAanet();
 		final String nimi = h.getNimi();
 		final String pvm = h.getPvm();
+		final int kayttajaid = h.getKayttajaid();
 		
 		//jdbc pist???? generoidun id:n t??nne talteen
 		KeyHolder idHolder = new GeneratedKeyHolder();
@@ -68,6 +69,7 @@ public class FiilisDAOSpringJdbcImpl implements FiilisDAO {
 	    	            ps.setInt(7, aanet);
 	    	            ps.setString(8, nimi);
 	    	            ps.setString(9, pvm);
+	    	            ps.setInt(10, kayttajaid);
 	    	            return ps;
 	    	        }
 	    	    }, idHolder);
@@ -98,7 +100,7 @@ public class FiilisDAOSpringJdbcImpl implements FiilisDAO {
 
 	public List<fiilistaulu> haeKaikki() {
 		
-		String sql = "select id, fiilis1, fiilis2, fiilis3, fiilis4, fiilis4, fiilis5, keskiarvo, aanet, nimi, pvm from fiilikset";
+		String sql = "select id, fiilis1, fiilis2, fiilis3, fiilis4, fiilis4, fiilis5, keskiarvo, aanet, nimi, pvm, kayttajaid from fiilikset";
 		RowMapper<fiilistaulu> mapper = new FiilisRowMapper();
 		List<fiilistaulu> henkilot = jdbcTemplate.query(sql,mapper);
 
