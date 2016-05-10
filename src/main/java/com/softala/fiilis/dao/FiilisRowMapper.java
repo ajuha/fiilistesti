@@ -23,6 +23,7 @@ public class FiilisRowMapper implements RowMapper<fiilistaulu> {
 		h.setAanet(rs.getInt("aanet"));
 		h.setNimi(rs.getString("nimi"));
 		h.setPvm(rs.getString("pvm"));
+		h.setKayttajaid(rs.getInt("kayttajaid"));
 		
 		return h;
 	}

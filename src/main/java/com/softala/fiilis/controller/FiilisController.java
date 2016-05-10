@@ -5,6 +5,8 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.springframework.http.MediaType;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -41,6 +43,11 @@ public class FiilisController {
 	@ResponseBody
     public FiilisImpl lisaaFiilis(@RequestBody FiilisImpl fiilis) {
 		System.out.println("fiilis: "+fiilis);
+		//1. Hae useri kannasta usernamen perustella
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		User user=userDao.getUserByUserName(authentication.getName());
+		//2. userilta saat id:n
+		//3. tee sille mit‰ haluat, lis‰‰ fiilikseen messiin...
 		dao.talleta(fiilis);
 		return fiilis;
         

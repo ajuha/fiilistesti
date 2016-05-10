@@ -54,11 +54,11 @@ $("#latausnappi").click(function() {
 	
 	//ladataan JSON-dataa palvelimelta
 	$.getJSON( "fiilikset.json", function( data ) {
-		var tableData = '<table><tr><th>ID</th><th>Fiilis 1</th><th>Fiilis 2</th><th>Fiilis 3</th><th>Fiilis 4</th><th>Fiilis 5</th><th>Keskiarvo</th><th>Äänet</th><th>Kyselyn nimi</th><th>Päivämäärä</th></tr>';
+		var tableData = '<table><tr><th>ID</th><th>Fiilis 1</th><th>Fiilis 2</th><th>Fiilis 3</th><th>Fiilis 4</th><th>Fiilis 5</th><th>Keskiarvo</th><th>Äänet</th><th>Kyselyn nimi</th><th>Päivämäärä</th><th>Käyttäjäid</th></tr>';
 		$.each( data, function( key, val ) {
 			//listaan uusi käyntikortti
 			//nimi käyntikorttiin	
-			tableData += '<tr><td>'+val.id+'</td><td>'+val.fiilis1+'</td><td>'+val.fiilis2+'</td><td>'+val.fiilis3+'</td><td>'+val.fiilis4+'</td><td>'+val.fiilis5+'</td><td>'+val.keskiarvo+'</td><td>'+val.aanet+'</td><td>'+val.nimi+'</td><td>'+val.pvm+'</td></tr>';
+			tableData += '<tr><td>'+val.id+'</td><td>'+val.fiilis1+'</td><td>'+val.fiilis2+'</td><td>'+val.fiilis3+'</td><td>'+val.fiilis4+'</td><td>'+val.fiilis5+'</td><td>'+val.keskiarvo+'</td><td>'+val.aanet+'</td><td>'+val.nimi+'</td><td>'+val.pvm+'</td><td>'+val.kayttajaid+'</td></tr>';
 		//	$("<h2/>").text(val.id + " " +val.fiilis1 + " " +val.fiilis2 + " " +val.fiilis3 + " " +val.fiilis4 + " " +val.fiilis5 + " " +val.keskiarvo + " " +val.aanet + " " +val.nimi + " " +val.pvm + " ").appendTo(feels);
 			$('#lista').html(tableData);
 		});
