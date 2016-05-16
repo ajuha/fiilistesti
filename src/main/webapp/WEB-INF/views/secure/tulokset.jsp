@@ -43,6 +43,7 @@
 //dokumentin latautuessa aktivoidaan tapahtumankuuntelijat
 $(document).ready(function(){
 	
+	setCookie("kysykeksi", 0, 365);
 	//tyhjennysnappia painettaessa
 	$("#tyhjennysnappi").click(function() {
 		$("#lista").empty();
@@ -54,11 +55,11 @@ $("#latausnappi").click(function() {
 	
 	//ladataan JSON-dataa palvelimelta
 	$.getJSON( "fiilikset.json", function( data ) {
-		var tableData = '<table><tr><th>ID</th><th>Fiilis 1</th><th>Fiilis 2</th><th>Fiilis 3</th><th>Fiilis 4</th><th>Fiilis 5</th><th>Keskiarvo</th><th>Äänet</th><th>Kyselyn nimi</th><th>Päivämäärä</th><th>Käyttäjäid</th></tr>';
+		var tableData = '<table><tr><th>Fiilis 1</th><th>Fiilis 2</th><th>Fiilis 3</th><th>Fiilis 4</th><th>Fiilis 5</th><th>Keskiarvo</th><th>Äänet</th><th>Kyselyn nimi</th><th>Päivämäärä</th></tr>';
 		$.each( data, function( key, val ) {
 			//listaan uusi käyntikortti
 			//nimi käyntikorttiin	
-			tableData += '<tr><td>'+val.id+'</td><td>'+val.fiilis1+'</td><td>'+val.fiilis2+'</td><td>'+val.fiilis3+'</td><td>'+val.fiilis4+'</td><td>'+val.fiilis5+'</td><td>'+val.keskiarvo+'</td><td>'+val.aanet+'</td><td>'+val.nimi+'</td><td>'+val.pvm+'</td><td>'+val.kayttajaid+'</td></tr>';
+			tableData += '<tr><td>'+val.fiilis1+'</td><td>'+val.fiilis2+'</td><td>'+val.fiilis3+'</td><td>'+val.fiilis4+'</td><td>'+val.fiilis5+'</td><td>'+val.keskiarvo+'</td><td>'+val.aanet+'</td><td>'+val.nimi+'</td><td>'+val.pvm+'</td></tr>';
 		//	$("<h2/>").text(val.id + " " +val.fiilis1 + " " +val.fiilis2 + " " +val.fiilis3 + " " +val.fiilis4 + " " +val.fiilis5 + " " +val.keskiarvo + " " +val.aanet + " " +val.nimi + " " +val.pvm + " ").appendTo(feels);
 			$('#lista').html(tableData);
 		});
@@ -78,6 +79,7 @@ $("#uusi").click(function() {
 	setCookie("pisteet5keksi", 0, 365);
 	setCookie("yhteispisteetkeksi", 0,
 			365);
+	setCookie("nimikeksi", 0, 365);
 	window.location.replace("fiilis");
 });
 
@@ -110,7 +112,7 @@ function setCookie(cname, cvalue, exdays) {
 					<!--Tämän kommentin alla ovat oikealla olevat linkit-->
 					<ul class="nav navbar-nav navbar-right">
 					<li><a>Sisäänkirjautuneena: <sec:authentication property="principal.username"/></a> </li>
-					<li> <a href="../loginsivulle"> Kirjaudu ulos</a></li>
+					<li> <a href="../j_spring_security_logout"> Kirjaudu ulos</a></li>
 				
 					</ul>
 				</div>
@@ -122,6 +124,11 @@ function setCookie(cname, cvalue, exdays) {
     <div class="container">
 <br>
 <br>
+<sec:authorize access="hasRole('ROLE_ADMIN')">
+<h1 class="text-center"><a href="admin/tools">Admin tools</a></h1>
+</sec:authorize>
+
+
 <br>
 <h1>Profiili</h1>
 
@@ -132,16 +139,12 @@ function setCookie(cname, cvalue, exdays) {
 <td><sec:authentication property="principal.username"/></td>
 </tr>
 <tr>
-<td>Tunnus luotu:</td>
-<td></td>
-</tr>
-<tr>
 <td>Fiilistestejä:</td>
-<td></td>
+<td><c:out value="${maara}"/></td>
 </tr>
 <tr>
 <td>Viimeisin fiilistesti:</td>
-<td></td>
+<td><c:out value="${viimeisin}"/></td>
 </tr>
 
 </table>
@@ -151,15 +154,17 @@ function setCookie(cname, cvalue, exdays) {
 <button type="button" class="btn btn-primary btn-block" id="uusi">Luo uusi fiiliskysely</button>
 
 <br>
+
+
+
+<div class="row">
+  <div class="col-md-6"><button class="btn btn-success btn-block testinappula"id="latausnappi">Hae fiilistestit</button></div>
+  <div class="col-md-6"><button class="btn btn-success btn-block" id="tyhjennysnappi" >Piilota fiilistestit</button></div>
+</div>
 <br>
 
 
-<br>
-<br>
 
-<a href="fiilissivulle">Takaisin</a>
-
-<button id="latausnappi">Hae JSON</button> <button id="tyhjennysnappi">Tyhjenn&auml;</button>
 <div id="lista"></div>
 
 

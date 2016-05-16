@@ -15,6 +15,7 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
+import com.softala.fiilis.bean.User;
 import com.softala.fiilis.bean.fiilistaulu;
 @Repository
 public class FiilisDAOSpringJdbcImpl implements FiilisDAO {
@@ -50,7 +51,7 @@ public class FiilisDAOSpringJdbcImpl implements FiilisDAO {
 		final int aanet = h.getAanet();
 		final String nimi = h.getNimi();
 		final String pvm = h.getPvm();
-		final int kayttajaid = 1;
+		final int kayttajaid = h.getKayttajaid();
 		
 		//jdbc pist???? generoidun id:n t??nne talteen
 		KeyHolder idHolder = new GeneratedKeyHolder();
@@ -98,7 +99,32 @@ public class FiilisDAOSpringJdbcImpl implements FiilisDAO {
 	}
 	
 
-	public List<fiilistaulu> haeKaikki() {
+	public List<fiilistaulu> haeKaikki(int id) {
+		
+		String sql = "select id, fiilis1, fiilis2, fiilis3, fiilis4, fiilis4, fiilis5, keskiarvo, aanet, nimi, pvm, kayttajaid from fiilikset where kayttajaid =?";
+		RowMapper<fiilistaulu> mapper = new FiilisRowMapper();
+		Object[] parametrit = new Object[] { id };
+		List<fiilistaulu> henkilot = jdbcTemplate.query(sql, parametrit, mapper);
+
+		return henkilot;
+	}
+	
+	public User haeYksiKayttaja(String nimi) {
+		System.out.println(nimi);
+		String sql = "select * from webuser2 where username = ?";
+		Object[] parametrit = new Object[] { nimi };
+		RowMapper<User> mapper = new UserRowMapper();
+		
+	    User u;
+	    try { 
+	    u = jdbcTemplate.queryForObject(sql , parametrit, mapper);
+	    } catch(IncorrectResultSizeDataAccessException e) {
+	    	throw new FiilistaEiLoydyPoikkeus(e);
+	    }
+	    return u;
+	}
+	
+public List<fiilistaulu> haeIhanKaikki() {
 		
 		String sql = "select id, fiilis1, fiilis2, fiilis3, fiilis4, fiilis4, fiilis5, keskiarvo, aanet, nimi, pvm, kayttajaid from fiilikset";
 		RowMapper<fiilistaulu> mapper = new FiilisRowMapper();
@@ -106,4 +132,14 @@ public class FiilisDAOSpringJdbcImpl implements FiilisDAO {
 
 		return henkilot;
 	}
+
+public List<User> haeKaikkiKayttajat() {
+	
+	String sql = "select id, username, password_encrypted, enabled, firstname, lastname from webuser2";
+	RowMapper<User> mapper = new UserRowMapper();
+	List<User> kayttajat = jdbcTemplate.query(sql,mapper);
+
+	return kayttajat;
+}
+	
 }

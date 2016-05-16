@@ -37,8 +37,17 @@
 	$(document)
 			.ready(
 					function() {
-
-						var nimi = prompt("Anna fiilistestille nimi:", "softalatunti");
+						var nimi ="";
+						var kysy=0;
+						kysy = getCookie("kysykeksi");
+						
+						
+						if (kysy!=1){
+							var nimi = prompt("Anna fiilistestille nimi:", "softalatunti");
+							setCookie("kysykeksi", 1, 365);
+							setCookie("nimikeksi", nimi, 365);
+						}
+						
 						//alustetaan alkuarvot
 						var yhteispisteet = 0;
 						var aanet = 0;
@@ -57,7 +66,8 @@
 						pisteet4 = getCookie("pisteet4keksi");
 						pisteet5 = getCookie("pisteet5keksi");
 						yhteispisteet = getCookie("yhteispisteetkeksi");
-						aanet = getCookie("aanetkeksi")
+						aanet = getCookie("aanetkeksi");
+						nimi = getCookie("nimikeksi");
 
 						$("#tulos")
 								.html(
@@ -151,7 +161,7 @@
 
 							$("#kiitos").fadeOut(
 									function() {
-										$(this).text("Anna loppufiilis!")
+										$(this).text("Anna fiilis!")
 												.fadeIn("fast");
 										$("#kiitos").css({
 											"font-weight" : "normal",
@@ -285,11 +295,11 @@
 
 
 		<!-- Main component for a primary marketing message or call to action -->
-		<br> <br> <a href="tulokset">Näytä tulokset</a><br>
-		<button id="lisaa">Lisää tulokset tietokantaan</button>
+	<div id="tyhjatila">
+		</div>
 		
 		<div id="tyhjatila">
-			<h1 id="kiitos" class="text-center">Anna loppufiilis</h1>
+			<h1 id="kiitos" class="text-center">Anna fiilis!</h1>
 		</div>
 		<br>
 
@@ -352,14 +362,18 @@
 
 		<div class="row">
 			<div class="col-md-6 col-xs-10 col-md-offset-3 col-xs-offset-1">
-				<button id="tulokset" class="btn-block">Näytä tulokset</button>
+				<button id="tulokset" class="btn btn-primary btn-block">Näytä tulokset</button>
 
 				<h2 id="tulos" class="text-center"></h2>
 
 				<br> <br> <br> <br> <br> <br> <br>
 				<br> <br> <br> <br> <br> <br> <br>
 				<br>
-				<button id="nollaa" class="btn-block">Nollaa</button>
+				
+		<button class="btn btn-success btn-block" id="lisaa">Lisää tulokset tietokantaan</button>
+			<br><br>
+			<h1 class="text-center"><a href="tulokset">Takaisin tulossivulle</a></h1><br><br>
+				<button id="nollaa" class="btn btn-primary btn-block">Nollaa</button>
 			</div>
 			</div>
 			<!-- row päättyy -->

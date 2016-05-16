@@ -63,7 +63,7 @@
 					</ul>
 					<!--Tämän kommentin alla ovat oikealla olevat linkit-->
 					<ul class="nav navbar-nav navbar-right">
-					<li> <a href="pyydatunnus"> Pyydä tunnus</a></li>
+					<li> <a href="loginsivulle"> Kirjaudu</a></li>
 				
 					</ul>
 				</div>
@@ -78,34 +78,11 @@
 <br>
         <!-- Jumbotron Header -->
         <header class="jumbotron hero-spacer">
-        	<c:if test="${not empty loggedout}">
-		<p class="Info text-success text-center">Uloskirjautuminen onnistui</p>
-	</c:if>
-        
-        
-            <h1 style="text-align: center; font-family: 'Montserrat', sans-serif;">Tervetuloa fiilissivulle!</h1>
-             <div id="sisalto">
-	<h2 class="text-center" style="font-family: 'Montserrat', sans-serif;">KIRJAUDU SISÄÄN</h2>
-
-	<c:if test="${not empty loginerror}">
-		<p class="Error text-danger" style="text-align: center;">Sisäänkirjautuminen epäonnistui. Käyttäjätunnus tai salasana on syötetty väärin.</p>
-	</c:if>
-
-
+           
 	
-	<form action="j_spring_security_check" method="post">
-	<fieldset>
-		<table>
-		<tr><td>USERNAME: (matti)</td><td><input type='text' name='j_username' value=''></td></tr>
-		<tr><td>PASSWORD: (masanpassu)</td><td><input type='password' name='j_password' /></td></tr>
-		
-		</table>
-		<button class="center-block btn btn-primary"type="submit">Kirjaudu</button>
-	</fieldset>
-	</form>
 	
-	 
-	</div>
+	<p style="text-align: center; max-width: 700px; margin-left: auto;  margin-right: auto;">Lähettäkää sähköpostia osoitteeseen a1402956@myy.haaga-helia.fi, ja kertokaa haluamanne käyttäjänimi, niin lähetämme teille paluuviestinä henkilökohtaiset tunnuksenne, jonka jälkeen voitte luoda omia Fiiliskyselyitä.</p>
+	
 	
 	
         </header>

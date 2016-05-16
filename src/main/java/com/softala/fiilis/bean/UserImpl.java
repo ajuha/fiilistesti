@@ -9,6 +9,7 @@ public class UserImpl implements User {
 	private int enabled;
 	private String firstname;
 	private String lastname;
+	
 	public int getId() {
 		return id;
 	}
@@ -42,9 +43,17 @@ public class UserImpl implements User {
 	public String getLastname() {
 		return lastname;
 	}
+	
+	
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
 	}
-	
+	@Override
+	public String toString() {
+		return "UserImpl [id=" + id + ", username=" + username
+				+ ", password_encrypted=" + password_encrypted + ", enabled="
+				+ enabled + ", firstname=" + firstname + ", lastname="
+				+ lastname + "]";
+	}
 	
 }

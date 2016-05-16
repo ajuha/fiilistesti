@@ -1,14 +1,23 @@
 package com.softala.fiilis.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
+import org.springframework.stereotype.Repository;
 
 import com.softala.fiilis.bean.User;
 
-public class UserDAOSpringJdbcImpl {
+public class UserDAOSpringJdbcImpl implements UserDAO {
 	
 	
 	@Inject
@@ -22,8 +31,9 @@ public class UserDAOSpringJdbcImpl {
 		this.jdbcTemplate = jdbcTemplate;
 	}
 
-	public User etsi(String nimi) {
-		String sql = "select id from fiilikset where nimi = ?";
+	public User haeId(String nimi) {
+		System.out.println(nimi);
+		String sql = "select id from webuser2 where username = ?";
 		Object[] parametrit = new Object[] { nimi };
 		RowMapper<User> mapper = new UserRowMapper();
 		

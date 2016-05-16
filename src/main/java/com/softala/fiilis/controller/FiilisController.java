@@ -24,8 +24,7 @@ import com.softala.fiilis.dao.UserDAO;
 public class FiilisController {
 	@Inject
 	FiilisDAO dao;
-	UserDAO udao;
-
+	/** 
 	@RequestMapping("fiilikset.json")
 	public @ResponseBody List<fiilistaulu> haeFiiliksetJSON() {
 		List<fiilistaulu> fiilikset = dao.haeKaikki();
@@ -40,6 +39,8 @@ public class FiilisController {
 		model.addAttribute("tulokset", tulokset);
 		return "tulokset";
 	}
+	*/
+	
 	
 	@RequestMapping(value="lisaatulos", method=RequestMethod.POST, 
             produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -76,6 +77,12 @@ public class FiilisController {
 		public String naytalogin() {
 			return "login";
 		}	
+		
+		//vie pyydatunnussivulle
+				@RequestMapping("pyydatunnus")
+				public String naytaPyydatunnus() {
+					return "pyydatunnus";
+				}
 		
 		
 }
